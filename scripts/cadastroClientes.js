@@ -1,4 +1,4 @@
-const LOGGED_USER_KEY = "loggedInUser ";
+const LOGGED_USER_KEY = "loggedInUser";
 const USERS_KEY = "usersData";
 
 const userForm = document.getElementById('user-form');

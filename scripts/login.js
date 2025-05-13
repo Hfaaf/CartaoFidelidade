@@ -65,7 +65,7 @@ function Login() {
 
     if (verificar) {
         event.preventDefault()
-        localStorage.setItem("loggedInUser ", email)
+        localStorage.setItem("loggedInUser", email)
         local = window.document.location.href = "/pages/wait.html"
         console.log(local)
     } else if (email === "" || password === "") {

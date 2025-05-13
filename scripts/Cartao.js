@@ -26,16 +26,16 @@ function createCard() {
         markedStamps: 0
     };
 
-    const loggedInUser  = localStorage.getItem("loggedInUser ");
-    if (!loggedInUser ) {
+    const loggedInUser  = localStorage.getItem("loggedInUser");
+    if (!loggedInUser) {
         alert("Você precisa estar logado para criar um cartão.");
         return;
     }
 
-    const userCards = JSON.parse(localStorage.getItem(loggedInUser )) || [];
+    const userCards = JSON.parse(localStorage.getItem(loggedInUser)) || [];
     userCards.push(currentCard);
 
-    localStorage.setItem(loggedInUser , JSON.stringify(userCards));
+    localStorage.setItem(loggedInUser, JSON.stringify(userCards));
 
     window.location.href = `homePage.html?name=${encodeURIComponent(currentCard.name)}&reward=${encodeURIComponent(currentCard.reward)}&stamps=${currentCard.stamps}`;
 }
