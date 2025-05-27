@@ -6,13 +6,38 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #4785DB;
-    color: white;
-    padding: 20px;
-    display: grid;
-    grid-template-rows: 20vh, 1fr, 1fr;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('../img/fundoinicio.png') no-repeat center center fixed;
+  background-size: cover; 
+  position: relative;
+  z-index: 1; 
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+
+.titulo-cartao {
+    color: #eaeaea;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;        /* deixa o texto em itálico */
+    text-align: center;
+    letter-spacing: 0.05rem;
+    margin: 1.5rem 0;
+    display: flex;             /* para alinhar texto e ícone lado a lado */
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;              /* espaçamento entre ícone e texto */
+}
+
+
 
 
 header {
@@ -25,7 +50,7 @@ header {
     margin-bottom: 2rem;
 
     .logo {
-        padding-top: 2rem;
+        padding-top: 5rem;
         grid-row: 1;
         margin: auto;
         display: flex;
