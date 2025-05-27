@@ -6,38 +6,14 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background: url('../img/Bg_degrade.jpeg') no-repeat center center fixed;
-  background-size: cover; 
-  position: relative;
-  z-index: 1; 
+    background: url('../img/Bg_degrade.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 20vh, 1fr, 1fr;
 }
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-}
-
-
-.titulo-cartao {
-    color: #eaeaea;
-    font-size: 1.5rem;
-    font-weight: 300;
-    font-style: italic;        /* deixa o texto em itálico */
-    text-align: center;
-    letter-spacing: 0.05rem;
-    margin: 1.5rem 0;
-    display: flex;             /* para alinhar texto e ícone lado a lado */
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;              /* espaçamento entre ícone e texto */
-}
-
-
 
 
 header {
@@ -50,7 +26,7 @@ header {
     margin-bottom: 2rem;
 
     .logo {
-        padding-top: 5rem;
+        padding-top: 2rem;
         grid-row: 1;
         margin: auto;
         display: flex;
@@ -175,7 +151,6 @@ button:hover:after {
     max-width: 100%;
     height: auto;
 }
-/* Modal - sobreposição */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -183,13 +158,12 @@ button:hover:after {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    display: none; /* Inicialmente escondido */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Modal - conteúdo */
 .modal-content {
     background-color: #fff;
     color: #333;
@@ -202,17 +176,13 @@ button:hover:after {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Mostrar modal quando ativado */
 .show {
     display: flex !important;
 }
-
-/* Esconder com classe "hidden" */
 .hidden {
     display: none !important;
 }
 
-/* Botão de fechar */
 #close-modal {
     display: inline-block;
     margin-bottom: 1rem;
@@ -280,9 +250,7 @@ button:hover:after {
     }
 
     .logo img {
-        /* position: relative; */
         max-height: 80px;
-        /* right: -50%; */
         margin-bottom: 1rem;
     }
 }
