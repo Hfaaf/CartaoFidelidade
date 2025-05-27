@@ -19,6 +19,14 @@ body {
   padding: 2rem;
 }
 
+#share-card-btn {
+  background-color: #4785db;
+}
+
+#confirm-link {
+  background-color: #4785db;
+}
+
 .container h1 {
   color: #fff;
   text-align: center;
