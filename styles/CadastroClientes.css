@@ -1,58 +1,49 @@
-/* === Reset e Fonte Global === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #4785DB;
-  color: #333;
-  line-height: 1.6;
-}
-
-.container h1 {
-  color: white;
+  background: url('../img/Bg_degrade.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  min-height: 100vh;
 }
 
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
+  margin: 2rem auto;
+  padding: 2rem;
 }
 
-/* === Títulos === */
-h1 {
+.container h1 {
+  color: #fff;
   text-align: center;
-  margin-bottom: 30px;
-  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 8px #4785DB;
 }
 
-h2 {
-  color: #3498db;
-  margin-bottom: 20px;
-}
-
-/* === Formulários === */
 .form-container,
 .users-container {
-  background-color: white;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  background: rgba(71, 133, 219, 0.85);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  margin-bottom: 2rem;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 1.2rem;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
   font-weight: 600;
+  color: #fff;
 }
 
 input[type="text"],
@@ -60,100 +51,160 @@ input[type="email"],
 input[type="tel"],
 input[type="search"] {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 12px;
   font-size: 16px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder {
+  color: #e0e0e0;
 }
 
 input:focus {
   outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 8px #4785DB;
+  color: #fff;
 }
 
 /* === Botões Formulário === */
 .form-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
+button, .btn {
+  padding: 10px 24px;
+  border: 2px solid #fff;
+  border-radius: 0.625em;
+  background: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.4s, background 0.4s, border-color 0.4s;
+}
+
+button:hover, .btn:hover {
+  color: #fff;
+}
+
+button::after, .btn::after {
+  content: "";
+  background: #4785DB;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+button:hover::after, .btn:hover::after {
+  transform: skewX(-45deg) scale(1, 1);
 }
 
 #save-btn {
-  background-color: #2ecc71;
-  color: white;
+  border-color: #2ecc71;
+  color: #2ecc71;
+  background: none;
 }
 
 #save-btn:hover {
-  background-color: #27ae60;
+  background: #2ecc71;
+  color: #fff;
+  border-color: #2ecc71;
 }
 
 #cancel-btn {
-  background-color: #e74c3c;
-  color: white;
+  border-color: #e74c3c;
+  color: #e74c3c;
+  background: none;
 }
 
 #cancel-btn:hover {
-  background-color: #c0392b;
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+#back-btn {
+  border-color: #4785DB;
+  color: #4785DB;
+  background: none;
+}
+
+#back-btn:hover {
+  background: #4785DB;
+  color: #fff;
+  border-color: #4785DB;
 }
 
 /* === Tabela de Usuários === */
 table {
   width: 100%;
   border-collapse: collapse;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-th,
-td {
-  padding: 12px 15px;
+th, td {
+  padding: 14px 18px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #4785DB;
+  color: #fff;
 }
 
 th {
-  background-color: #f2f2f2;
-  font-weight: 600;
+  background: rgba(71,133,219,0.7);
+  font-weight: 700;
 }
 
 tr:hover {
-  background-color: #f9f9f9;
+  background: rgba(255,255,255,0.12);
 }
 
 .action-btns {
   display: flex;
-  gap: 5px;
+  gap: 0.5rem;
 }
 
-.edit-btn,
-.delete-btn {
-  color: white;
-  padding: 6px 10px;
-  border-radius: 4px;
+.edit-btn, .delete-btn {
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .edit-btn {
-  background-color: #3498db;
+  background: #3498db;
 }
 
 .edit-btn:hover {
-  background-color: #2980b9;
+  background: #2980b9;
 }
 
 .delete-btn {
-  background-color: #e74c3c;
+  background: #e74c3c;
 }
 
 .delete-btn:hover {
-  background-color: #c0392b;
+  background: #c0392b;
 }
 
 /* === Cartões === */
@@ -222,6 +273,7 @@ tr:hover {
   width: 80%;
   max-width: 600px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #333;
 }
 
 .close-modal {
@@ -282,7 +334,7 @@ tr:hover {
   height: 20px;
   border-radius: 50%;
   background-color: #e9ecef;
-  border: 1px solid #ced4da;
+  margin: 2px;
 }
 
 .stamp-mini.marked,
@@ -292,7 +344,6 @@ tr:hover {
 }
 
 .stamp-selector {
-  border: 2px solid #adb5bd;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -334,31 +385,59 @@ tr:hover {
 }
 
 /* === Responsivo === */
+@media (max-width: 900px) {
+  .container {
+    padding: 1rem;
+  }
+  .form-container, .users-container {
+    padding: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .form-buttons {
     flex-direction: column;
+    gap: 0.7rem;
+    align-items: stretch;
   }
-
-  button {
+  button, .btn {
     width: 100%;
+    min-width: unset;
+    font-size: 1rem;
   }
-
   table {
     display: block;
     overflow-x: auto;
   }
-
   .card-actions {
     flex-direction: row;
   }
-
   .card-actions button {
     min-width: 80px;
     padding: 6px 8px;
     font-size: 0.8em;
   }
-
   .card-actions button span {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+  .form-container, .users-container {
+    padding: 0.5rem;
+  }
+  th, td {
+    padding: 10px 8px;
+    font-size: 0.95em;
+  }
+  .form-buttons {
+    gap: 0.5rem;
+  }
+  button, .btn {
+    font-size: 0.95rem;
+    padding: 10px 0;
   }
 }
