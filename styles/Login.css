@@ -4,19 +4,24 @@
     padding: 0;
   }
   
-  body {
-    background-size: cover;
-    background: url('../img/cartao-fidelidade.webp') no-repeat center center fixed;
-  }
-  
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    z-index: 0;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('../img/fundoinicio.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
   
   .formulario {
     position: relative;
@@ -35,9 +40,9 @@
   }
   
   .logo-img {
-    max-width: 220px;
+    max-width: 280px;
     margin-bottom: 1.5rem;
-    filter: drop-shadow(2px 2px 4px #000);
+    filter: drop-shadow(2px 2px 4px #4785DB);
   }
   
   .formulario input {
