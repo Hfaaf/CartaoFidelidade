@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: url('../img/fundoinicio.png') no-repeat center center fixed;
+  background: url('../img/Bg_degrade.jpeg') no-repeat center center fixed;
   background-size: cover;
   position: relative;
   z-index: 1;
