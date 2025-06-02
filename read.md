@@ -54,36 +54,54 @@ Este documento descreve o planejamento inicial para o desenvolvimento da aplica�
 
 ### 4.2 Desenvolvimento da API REST (Endpoints Chave)
 *   **Autenticação e Gestão da Empresa:**
-    *   `POST /business/register` (Registro da empresa na plataforma)
-    *   `POST /login` (Login da empresa)
-    *   `POST /reset-password` (Reset de senha da empresa)
-    *   `GET /dashboard` (Dashboard da empresa)
+    ```
+    POST /business/register
+    POST /login
+    POST /reset-password
+    GET  /dashboard
+    ```
 *   **Gerenciamento de Modelos de Cartões Fidelidade (pela Empresa):**
-    *   `POST /business/cards` (Criar modelo de cartão)
-    *   `PUT /business/cards/:cardId` (Atualizar modelo)
-    *   `GET /business/cards` (Listar modelos)
-    *   `DELETE /business/cards/:cardId` (Deletar modelo)
+    ```
+    POST   /business/cards
+    PUT    /business/cards/:cardId
+    GET    /business/cards
+    DELETE /business/cards/:cardId
+    ```
 *   **Gerenciamento de Clientes (pela Empresa):**
-    *   `POST /business/clients` (Empresa cadastra cliente, dispara geração de token e envio de link via WhatsApp)
-    *   `GET /business/clients` (Listar clientes da empresa)
-    *   `PUT /business/clients/:clientId` (Editar dados do cliente)
-    *   `GET /business/clients/:clientId/history` (Histórico de um cliente)
+    ```
+    POST /business/clients
+    GET  /business/clients
+    PUT  /business/clients/:clientId
+    GET  /business/clients/:clientId/history
+    ```
 *   **Operações no Cartão do Cliente (pela Empresa):**
-    *   `POST /business/clients/:clientId/points` (Adicionar pontos/check-in)
-    *   `POST /business/clients/:clientId/redeem` (Registrar resgate de recompensa)
+    ```
+    POST /business/clients/:clientId/points
+    POST /business/clients/:clientId/redeem
+    ```
 *   **Gerenciamento de Recompensas (pela Empresa):**
-    *   `POST /business/rewards` (Criar recompensa)
-    *   `PUT /business/rewards/:rewardId` (Atualizar recompensa)
-    *   `GET /business/rewards` (Listar recompensas)
-    *   `DELETE /business/rewards/:rewardId` (Deletar recompensa)
+    ```
+    POST   /business/rewards
+    PUT    /business/rewards/:rewardId
+    GET    /business/rewards
+    DELETE /business/rewards/:rewardId
+    ```
 *   **Acesso Público (Cliente):**
-    *   `GET /client/:token` (Retorna dados do cartão do cliente através de um token único)
+    ```
+    GET /client/:token
+    ```
 *   **Integração WhatsApp (Interno):**
-    *   `POST /send-link` (Chamado internamente após cadastro do cliente ou em outros momentos pertinentes)
+    ```
+    POST /send-link 
+    ```
+    *(Chamado internamente após cadastro do cliente ou em outros momentos pertinentes)*
 
 ### 4.3 Geração de Link com Token
 *   O cadastro do cliente é feito pela empresa em sua área administrativa.
-*   **Formato da URL do Cliente:** `https://dominio.com/client/:tokenUnico`
+*   **Formato da URL do Cliente:**
+    ```
+    https://dominio.com/client/:tokenUnico
+    ```
 
 ### 4.4 Desenvolvimento do Frontend (Admin e Cliente)
 
@@ -147,5 +165,3 @@ Este documento descreve o planejamento inicial para o desenvolvimento da aplica�
     *   Essenciais para as empresas e para os clientes finais.
     *   Deixar claro como os dados são usados, especialmente o número de telefone, em conformidade com a LGPD.
 
----
-Parabéns pela iniciativa e pelo planejamento inicial detalhado!
