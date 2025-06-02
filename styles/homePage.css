@@ -6,8 +6,9 @@
 }
 
 body {
+    background: url('../img/Bg_degrade.jpeg') no-repeat center center fixed;
+    background-size: cover;
     font-family: Arial, sans-serif;
-    background-color: #4785DB;
     color: white;
     padding: 20px;
     display: grid;
@@ -150,7 +151,6 @@ button:hover:after {
     max-width: 100%;
     height: auto;
 }
-/* Modal - sobreposição */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -158,13 +158,12 @@ button:hover:after {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    display: none; /* Inicialmente escondido */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-/* Modal - conteúdo */
 .modal-content {
     background-color: #fff;
     color: #333;
@@ -177,17 +176,13 @@ button:hover:after {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Mostrar modal quando ativado */
 .show {
     display: flex !important;
 }
-
-/* Esconder com classe "hidden" */
 .hidden {
     display: none !important;
 }
 
-/* Botão de fechar */
 #close-modal {
     display: inline-block;
     margin-bottom: 1rem;
@@ -255,9 +250,7 @@ button:hover:after {
     }
 
     .logo img {
-        /* position: relative; */
         max-height: 80px;
-        /* right: -50%; */
         margin-bottom: 1rem;
     }
 }
