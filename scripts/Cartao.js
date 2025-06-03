@@ -26,7 +26,7 @@ function createCard() {
         markedStamps: 0
     };
 
-    const loggedInUser  = localStorage.getItem("loggedInUser");
+    const loggedInUser = localStorage.getItem("loggedInUser");
     if (!loggedInUser) {
         alert("Você precisa estar logado para criar um cartão.");
         return;
@@ -42,17 +42,17 @@ function createCard() {
 
 function generateStamps() {
     stampsGrid.innerHTML = '';
-    
+
     for (let i = 0; i < currentCard.stamps; i++) {
         const stamp = document.createElement('div');
         stamp.className = 'stamp';
         stamp.textContent = i + 1;
-        
+
         stamp.addEventListener('click', () => {
             stamp.classList.toggle('marked');
             updateMarkedStamps();
         });
-        
+
         stampsGrid.appendChild(stamp);
     }
 }
@@ -89,7 +89,15 @@ function resetApp() {
         stamps: 0,
         markedStamps: 0
     };
-    
+
     cardScreen.classList.add('hidden');
     mainScreen.classList.remove('hidden');
 }
+createBtn.addEventListener('click', createCard);
+
+const voltaBtn = document.getElementById('volta-btn');
+voltaBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    formScreen.classList.add('hidden');
+    mainScreen.classList.remove('hidden');
+});

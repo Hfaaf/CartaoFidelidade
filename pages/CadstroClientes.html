@@ -56,7 +56,6 @@
         </div>
     </div>
 
-    <!-- Modal para seleção de cartões -->
     <div id="cards-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -67,5 +66,17 @@
     </div>
 
     <script src="../scripts/cadastroClientes.js"></script>
+    <script>
+        function loadSidebar() {
+            fetch('../components/SideBar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Erro ao carregar a sidebar:', error));
+        }
+
+        loadSidebar();
+    </script>
 
 </body>

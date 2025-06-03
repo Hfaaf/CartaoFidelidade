@@ -6,32 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Cartão</title>
     <link rel="stylesheet" href="../styles/homePage.css">
+    <link rel="stylesheet" href="../styles/SideBar.css">
+
 </head>
 
 <body>
-    
+    <div id="sidebar-container"></div>
+
     <header>
         <div class="logo">
-            <!-- <iframe src="../components/Logo.html" frameborder="0" height="400px" width="500px"></iframe> -->
-            <img src="../img/logo-completo.svg" alt="" id="logo" > 
+            <img src="../img/logo-completo.svg" alt="" id="logo">
         </div>
         <h1 class="titulo-cartao">MEUS CARTÕES</h1>
-       
         <button class="btn" onclick="window.document.location.href = 'CadstroClientes.html'">Clientes</button>
         <button class="btn" onclick="window.document.location.href = `Cartao.html` ">Criar item</button>
-        <!-- <hr style="width: 20rem;"> -->
     </header>
     <div id="user-info">
         <p id="user-name"></p>
         <p id="user-email"></p>
-        <a href="#" onclick="sair()" id="sair">Sair</a>
     </div>
     <main>
         <div id="user-cards"></div>
     </main>
 
-   <div id="modal" class="hidden modal-overlay" >
-        <div class="modal-content ">
+    <div id="modal" class="hidden modal-overlay">
+        <div class="modal-content">
             <a id="close-modal">Fechar</a>
             <h3>Clientes vinculados</h3>
             <ul id="modal-client-list"></ul>
@@ -39,6 +38,18 @@
     </div>
 
     <script src="../scripts/homePage.js"></script>
+    <script>
+        function loadSidebar() {
+            fetch('../components/SideBar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Erro ao carregar a sidebar:', error));
+        }
+
+        loadSidebar();
+    </script>
 </body>
 
 </html>

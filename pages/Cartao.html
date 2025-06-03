@@ -5,18 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MARCAQUI - Cartão Fidelidade</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/Cartao.css">
+    <link rel="stylesheet" href="../styles/SideBar.css">
 </head>
 
 <body>
+    <div id="sidebar-container"></div>
 
-    <header>
-        <div class="logo">
-            <!-- <iframe src="../components/Logo.html" frameborder="0" height="450px" width="500px" ></iframe> -->
-            <img src="../img/logo-completo.svg" alt="" id="logo">
-        </div>
-    </header>
 
     <main class="main-screen" id="main-screen">
         <div class="create-card-btn" id="create-card-btn">
@@ -31,28 +26,37 @@
                 <label for="card-name">Nome do Cartão</label>
                 <input type="text" id="card-name" placeholder="Ex: TOP FITNESS">
             </div>
-
             <div class="form-group">
                 <label for="card-reward">Recompensa</label>
                 <input type="text" id="card-reward" placeholder="Ex: 1 Whey grátis">
             </div>
-
-            <div class="form-group">
+            <div class="form-group01">
                 <label for="stamp-count">Quantidade de Selos</label>
-                <select id="stamp-count" class="form-group input">
+                <select id="stamp-count" class="form-group01 input">
                     <option value="5">5 selos</option>
                     <option value="10" selected>10 selos</option>
                     <option value="15">15 selos</option>
                     <option value="20">20 selos</option>
-                    <option value="30">30 selos</option>
                 </select>
             </div>
-
             <button id="create-btn" class="btn btn-primary">Criar Cartão</button>
+            <button id="volta-btn" class="btn btn-secondary">Voltar</button>
         </div>
     </div>
 
     <script src="../scripts/Cartao.js"></script>
+    <script>
+        function loadSidebar() {
+            fetch('../components/SideBar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Erro ao carregar a sidebar:', error));
+        }
+
+        loadSidebar();
+    </script>
 </body>
 
 </html>

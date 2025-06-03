@@ -2,30 +2,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 body {
-    background-color: #4785DB;
+    background-color: #4785db;
     color: white;
     min-height: 100vh;
     display: grid;
     grid-template-rows: 20vh, 1fr;
 }
 
-
-.logo{
+.logo {
     padding-top: 2rem;
     grid-row: 1;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    img{
+
+    img {
         height: 20vh;
         display: block;
     }
 }
+
 ::placeholder {
     color: white;
 }
@@ -33,7 +34,6 @@ body {
 .hidden {
     display: none;
 }
-
 
 .main-screen {
     grid-row: 2;
@@ -52,23 +52,25 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     margin-bottom: 30px;
-    
 }
-.form-screen{
+
+#form-screen {
     grid-row: 3;
 }
 
 .form-container {
-    background-color: #D9D9D9;
-    border-radius: 0px 0px 20px 20px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
     padding: 30px;
     max-width: 400px;
     margin: 0 auto;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
 }
-
 
 .form-title {
     position: relative;
@@ -82,23 +84,75 @@ body {
     margin-bottom: 20px;
 }
 
-.form-group label {
-    display: block;
+.form-group01 {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group01 label {
     margin-bottom: 8px;
-    color: #1a73e8;
+    color: white;
     font-weight: 500;
     font-size: 14px;
     text-transform: uppercase;
 }
 
-.form-group input,
-.form-group select {
+.form-group01 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: rgba(241, 238, 238, 0.1);
+    color: white;
     width: 100%;
     padding: 12px 15px;
     border: none;
     border-radius: 16px;
     font-size: 16px;
-    background-color: #1a73e8;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 18px 18px;
+}
+
+.form-group01 select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    background-color: rgba(76, 72, 72, 0.2);
+    border-color: #fff;
+    color: white;
+}
+
+.form-group01 input {
+    color: white;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    background-color: rgba(76, 72, 72, 0.2);
+    border-color: #fff;
     color: white;
 }
 
@@ -109,8 +163,8 @@ body {
     width: 6.5rem;
     height: 2.3rem;
     background: none;
-    color: #4785DB;
-    border: 2px solid #4785DB;
+    color: #fff;
+    border: 2px solid #fff;
     border-radius: 0.625em;
     font-weight: bold;
     cursor: pointer;
@@ -118,13 +172,39 @@ body {
     z-index: 1;
     overflow: hidden;
 }
-button:hover {
-    color: #4785DB;
-   }
-   
-   button:after {
+
+button:hover,
+.btn:hover {
+    color: #fff;
+}
+
+#create-btn {
+    border-color: white;
+    color: white;
+    background: none;
+}
+
+#create-btn:hover {
+    background: #2ecc71;
+    color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+#volta-btn {
+    border-color: white;
+    color: white;
+    background: none;
+}
+
+#volta-btn:hover {
+    background: #f2b51b;
+    color: #f2b51b;
+    border-color: #f2b51b;
+}
+
+button:after {
     content: "";
-    background: white;
+    background: #4785db;
     position: absolute;
     z-index: -1;
     left: -20%;
@@ -133,20 +213,21 @@ button:hover {
     bottom: 0;
     transform: skewX(-45deg) scale(0, 1);
     transition: all 0.5s;
-   }
+}
 
-   button:hover:after {
+button:hover:after {
     transform: skewX(-45deg) scale(1, 1);
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-   }
+}
 
 @media (max-width: 768px) {
     .form-container {
         width: 80vw;
         padding: 20px;
     }
-    .create-card-btn img{
+
+    .create-card-btn img {
         width: 80vw;
         margin: auto;
         margin-top: -25vh;
@@ -156,11 +237,21 @@ button:hover {
         width: 80%;
         bottom: -1.4rem;
     }
+
+    .form-group01 select {
+        width: 90%;
+    }
 }
 
 @media (max-width: 480px) {
+
     .form-group input,
     .form-group select {
+        padding: 10px;
+    }
+
+    .form-group01 select {
+        width: 100%;
         padding: 10px;
     }
 }

@@ -413,7 +413,7 @@ function openStampEditor(userId, cardName) {
 }
 
 
-function shareCard(card, userPhone) {
+function shareCard(card, userPhone, cliente) {
     const cleanedPhone = userPhone.replace(/\D/g, '');
 
     if (cleanedPhone.length < 10) {
@@ -421,15 +421,22 @@ function shareCard(card, userPhone) {
         return;
     }
 
-    const formattedPhone = `55${cleanedPhone}`
+    const formattedPhone = `55${cleanedPhone}`;
+    const displayPhone = formatPhoneBR(userPhone);
 
-    const displayPhone = formatPhoneBR(userPhone)
+    const clienteNome = encodeURIComponent(cliente?.name || '');
+    const clienteTelefone = encodeURIComponent(cliente?.phone || '');
+    const cartaoNome = encodeURIComponent(card.name || '');
+    const cartaoId = encodeURIComponent(card.id || '');
+
+    const progressoUrl = `${window.location.origin}/pages/cartaoCliente.html?cliente=${clienteNome}&telefone=${clienteTelefone}&cartao=${cartaoNome}`;
 
     const message = `*Cartão Fidelidade ${card.name}*\n\n` +
+        `*Cliente:* ${cliente?.name || ''}\n` +
+        `*Telefone:* ${displayPhone}\n` +
         `*Recompensa:* ${card.reward}\n` +
         `*Progresso:* ${card.markedStamps || 0}/${card.stamps} selos\n\n` +
-        `Acompanhe seu progresso!\n\n` +
-        `📱 Enviado para: ${displayPhone}`;
+        `Acompanhe seu progresso: ${progressoUrl}\n`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;

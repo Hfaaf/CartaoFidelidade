@@ -54,6 +54,7 @@ main {
     border-radius: 10px;
     width: 25rem;
     cursor: pointer;
+
     &:hover {
         background-color: rgba(255, 255, 255, 0.2);
         transform: scale(1.02);
@@ -86,14 +87,15 @@ main {
     padding: 10px;
     border-radius: 5px;
     color: white;
-    gap:5px;
+    gap: 5px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 #user-info p {
     margin: 0;
 }
+
 #sair {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 10px;
@@ -104,9 +106,11 @@ main {
     text-decoration: none;
     text-align: center;
 }
+
 #sair:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
 .btn {
     justify-content: center;
     align-content: center;
@@ -151,6 +155,7 @@ button:hover:after {
     max-width: 100%;
     height: auto;
 }
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -179,6 +184,7 @@ button:hover:after {
 .show {
     display: flex !important;
 }
+
 .hidden {
     display: none !important;
 }
