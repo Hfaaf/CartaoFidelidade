@@ -336,6 +336,10 @@ function setupCardEditing() {
 }
 
 function openStampEditor(userId, cardName) {
+    // Remover qualquer modal anterior antes de criar um novo
+    const existingModal = document.querySelector('.modal.stamp-editor');
+    if (existingModal) existingModal.remove();
+
     const user = usersData[loggedInUser].find(u => u.id === userId);
     if (!user || !user.linkedCards) return;
 
@@ -343,7 +347,7 @@ function openStampEditor(userId, cardName) {
     if (!card) return;
 
     const modal = document.createElement('div');
-    modal.className = 'modal';
+    modal.className = 'modal stamp-editor';
     modal.innerHTML = `
     <div class="modal-content stamp-editor">
         <span class="close-modal">&times;</span>
@@ -368,7 +372,7 @@ function openStampEditor(userId, cardName) {
             Selos marcados: <span id="stamp-count">${card.markedStamps || 0}</span>/${card.stamps}
         </div>
     </div>
-`;
+    `;
 
     document.body.appendChild(modal);
     modal.style.display = 'block';
@@ -403,7 +407,8 @@ function openStampEditor(userId, cardName) {
         renderUsers();
     };
     modal.querySelector('#share-card-btn').onclick = () => {
-        shareCard(card, user.phone);
+        shareCard(card, user.phone, user);
+        modal.remove();
     };
 
     function updateStampCount() {
@@ -432,7 +437,7 @@ function shareCard(card, userPhone, cliente) {
     const progressoUrl = `${window.location.origin}/pages/cartaoCliente.html?cliente=${clienteNome}&telefone=${clienteTelefone}&cartao=${cartaoNome}`;
 
     const message = `*Cartão Fidelidade ${card.name}*\n\n` +
-        `*Cliente:* ${cliente?.name || ''}\n` +
+        `*Cliente:* ${cliente.name || ''}\n` +
         `*Telefone:* ${displayPhone}\n` +
         `*Recompensa:* ${card.reward}\n` +
         `*Progresso:* ${card.markedStamps || 0}/${card.stamps} selos\n\n` +
